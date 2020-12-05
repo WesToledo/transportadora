@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head></h:head>
+<h:body>
+<h:form>
+<fieldset>
+<LEGEND>Novo Veiculo</LEGEND>
+<h:panelGrid columns="2">
+	<h:outputText value="Modelo" for="idModelo"/>
+	<h:inputText id="idModelo" value="#{veiculoController.veiculo.modelo}"/>
+	
+	<h:outputText value="Placa" for="idPlaca"/>
+	<h:inputText id="idPlaca" value="#{veiculoController.veiculo.placa}"/>
+	
+	<h:outputText value="Marca" for="idMarca"/>
+	<h:inputText id="idMarca" value="#{veiculoController.veiculo.marca}"/>
+	
+	
+	<h:commandButton value="Gravar" action="#{veiculoController.gravar}"/>
+</h:panelGrid>
+</fieldset>	
+</h:form>
+<h:form>
+<fieldset>
+<LEGEND>Dados</LEGEND>
+<h:panelGrid columns="2">
+	<h:dataTable value="#{veiculoController.listaVeiculo}" var="vei">
+		<h:column>
+		<f:facet name="header">Modelo</f:facet>
+		<h:outputText value="#{vei.modelo}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Placa</f:facet>
+		<h:outputText value="#{vei.placa}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Marca</f:facet>
+		<h:outputText value="#{vei.marca}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Alterar</f:facet>
+		<h:commandLink value="alterar" action="#{veiculoController.carregar(vei)}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Remover</f:facet>
+		<h:commandLink value="remover" action="#{veiculoController.remover(vei)}"/>
+		</h:column>
+	
+	</h:dataTable>
+	</h:panelGrid>
+</fieldset>
+</h:form>
+</h:body>
+
+</html>

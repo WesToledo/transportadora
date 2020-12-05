@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head></h:head>
+<h:body>
+<h:form>
+<fieldset>
+<LEGEND>Novo Cliente</LEGEND>
+<h:panelGrid columns="2">
+	<h:outputText value="Nome" for="idNome"/>
+	<h:inputText id="idNome" value="#{clienteController.cliente.nome}"/>
+	
+	<h:outputText value="Endereço" for="idendereco"/>
+	<h:inputText id="idendereco" value="#{clienteController.cliente.endereco}"/>
+	
+	<h:outputText value="CPF" for="idcpf"/>
+	<h:inputText id="idcpf" value="#{clienteController.cliente.cpf}"/>
+	
+	
+	<h:commandButton value="Gravar" action="#{clienteController.gravar}"/>
+</h:panelGrid>
+</fieldset>	
+</h:form>
+<h:form>
+<fieldset>
+<LEGEND>Dados</LEGEND>
+<h:panelGrid columns="2">
+	<h:dataTable value="#{clienteController.listaCliente}" var="cli">
+		<h:column>
+		<f:facet name="header">Nome</f:facet>
+		<h:outputText value="#{cli.nome}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Endereço</f:facet>
+		<h:outputText value="#{cli.endereco}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">CPF</f:facet>
+		<h:outputText value="#{cli.cpf}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Alterar</f:facet>
+		<h:commandLink value="alterar" action="#{clienteController.carregar(cli)}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Remover</f:facet>
+		<h:commandLink value="remover" action="#{clienteController.remover(cli)}"/>
+		</h:column>
+	
+	</h:dataTable>
+	</h:panelGrid>
+</fieldset>
+</h:form>
+</h:body>
+
+</html>
