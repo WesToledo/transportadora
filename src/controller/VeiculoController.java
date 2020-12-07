@@ -19,8 +19,6 @@ public class VeiculoController {
 		this.veiculo = veiculo;
 	}
 	
-	
-	
 	public void gravar() {
 				
 		VeiculoDAO dao = new VeiculoDAO();
