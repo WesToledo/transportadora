@@ -1,4 +1,4 @@
-package Dao.copy;
+package Dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +10,7 @@ import java.util.List;
 import Modelo.Veiculo;
 
 
-public class VeiculoDAO {
+public class VeiculoDao {
 	
 	public void adiciona(Veiculo v) throws ClassNotFoundException, SQLException {
 		String sql = 

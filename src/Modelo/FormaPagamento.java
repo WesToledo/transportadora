@@ -3,7 +3,6 @@ package Modelo;
 public class FormaPagamento {
 
 	private Integer id;
-
 	private String nome;
 	private double onus;
 	private int diasCompensacao;

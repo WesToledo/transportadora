@@ -6,7 +6,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import Dao.copy.PacoteDao;
+import Dao.PacoteDao;
 import Modelo.Pacote;
 
 @ManagedBean

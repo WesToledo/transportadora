@@ -6,8 +6,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import Dao.copy.VeiculoDAO;
-
+import Dao.VeiculoDao;
 import Modelo.Veiculo;
 
 @ManagedBean
@@ -21,7 +20,7 @@ public class VeiculoController {
 	
 	public void gravar() {
 				
-		VeiculoDAO dao = new VeiculoDAO();
+		VeiculoDao dao = new VeiculoDao();
 		
 		try {
 			
@@ -48,7 +47,7 @@ public class VeiculoController {
 		List<Veiculo> lista = null;
 		
 		try {
-			lista = new VeiculoDAO().listaTodos();
+			lista = new VeiculoDao().listaTodos();
 		} catch (ClassNotFoundException e){
 			e.printStackTrace();	
 		} catch (SQLException e) {
@@ -63,7 +62,7 @@ public class VeiculoController {
 	
 	public void remover(Veiculo p) {
 		try {
-			new VeiculoDAO().remove(p.getId());
+			new VeiculoDao().remove(p.getId());
 		} catch (ClassNotFoundException e) {
 			
 			e.printStackTrace();
