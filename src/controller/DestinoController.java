@@ -6,47 +6,43 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import Dao.PacoteDao;
-import Modelo.Pacote;
+import Dao.DestinoDao;
+import Modelo.Destino;
 
 @ManagedBean
 @ViewScoped
-public class PacoteController {
+public class DestinoController {
 
-	private Pacote pacote = new Pacote();
+	private Destino Destino = new Destino();
 
-	public void setPacote(Pacote pacote) {
-		this.pacote = pacote;
+	public void setDestino(Destino Destino) {
+		this.Destino = Destino;
 	}
 
 	public void gravar() {
-
-		PacoteDao dao = new PacoteDao();
+		DestinoDao dao = new DestinoDao();
 
 		try {
-
-			if (pacote.getId() == null) {
-				dao.adiciona(pacote);
-
+			if (Destino.getId() == null) {
+				dao.adiciona(Destino);
 			} else {
-				dao.atualiza(pacote);
+				dao.atualiza(Destino);
 			}
-
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		pacote = new Pacote();
+		Destino = new Destino();
 
 	}
 
-	public List<Pacote> getListaPacote() {
-		List<Pacote> lista = null;
+	public List<Destino> getListaDestino() {
+		List<Destino> lista = null;
 
 		try {
-			lista = new PacoteDao().listaTodos();
+			lista = new DestinoDao().listaTodos();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -55,13 +51,13 @@ public class PacoteController {
 		return lista;
 	}
 
-	public Pacote getPacote() {
-		return pacote;
+	public Destino getDestino() {
+		return Destino;
 	}
 
-	public void remover(Pacote p) {
+	public void remover(Destino d) {
 		try {
-			new PacoteDao().remove(p.getId());
+			new DestinoDao().remove(d.getId());
 		} catch (ClassNotFoundException e) {
 
 			e.printStackTrace();
@@ -71,8 +67,8 @@ public class PacoteController {
 		}
 	}
 
-	public void carregar(Pacote p) {
-		pacote = p;
+	public void carregar(Destino d) {
+		Destino = d;
 	}
 
 }
