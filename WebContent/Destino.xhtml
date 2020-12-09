@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head></h:head>
+<h:body>
+<h:form>
+<fieldset>
+<LEGEND>Novo Destino</LEGEND>
+<h:panelGrid columns="2">
+	<h:outputText value="Referencia" for="idReferencia"/>
+	<h:inputText id="idReferencia" value="#{destinoController.destino.nomeReferencia}"/>
+	
+	<h:outputText value="Endereço" for="idEndereco"/>
+	<h:inputText id="idEndereco" value="#{destinoController.destino.endereco}"/>
+	
+	<h:outputText value="Bairro" for="idBairro"/>
+	<h:inputText id="idBairro" value="#{destinoController.destino.bairro}"/>
+	
+	<h:outputText value="Numero" for="idNumero"/>
+	<h:inputText id="idNumero" value="#{destinoController.destino.numero}"/>
+	
+	<h:outputText value="CEP" for="idCep"/>
+	<h:inputText id="idCep" value="#{destinoController.destino.cep}"/>
+	
+	
+	
+	<h:commandButton value="Gravar" action="#{destinoController.gravar}"/>
+</h:panelGrid>
+</fieldset>	
+</h:form>
+<h:form>
+<fieldset>
+<LEGEND>Dados</LEGEND>
+<h:panelGrid columns="2">
+	<h:dataTable value="#{destinoController.listaDestino}" var="des">
+		<h:column>
+		<f:facet name="header">Referência</f:facet>
+		<h:outputText value="#{des.referencia}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Endereço</f:facet>
+		<h:outputText value="#{des.endereco}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Número</f:facet>
+		<h:outputText value="#{des.numero}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Bairro</f:facet>
+		<h:outputText value="#{des.bairro}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">CEP</f:facet>
+		<h:outputText value="#{des.cep}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Alterar</f:facet>
+		<h:commandLink value="alterar" action="#{destinoController.carregar(des)}" />
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Remover</f:facet>
+		<h:commandLink value="remover" action="#{destinoController.remover(des)}"/>
+		</h:column>
+	
+	</h:dataTable>
+	</h:panelGrid>
+</fieldset>
+</h:form>
+</h:body>
+
+</html>

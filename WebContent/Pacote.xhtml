@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head></h:head>
+<h:body>
+<h:form>
+<fieldset>
+<LEGEND>Pacote</LEGEND>
+<h:panelGrid columns="2">
+	<h:outputText value="Nome" for="idNome"/>
+	<h:inputText id="idNome" value="#{pacoteController.pacote.nome}"/>
+	
+	<h:outputText value="Valor" for="idValor"/>
+	<h:inputText id="idValor" value="#{pacoteController.pacote.valor}"/>
+	
+	<h:outputText value="Peso" for="idPeso"/>
+	<h:inputText id="idPeso" value="#{pacoteController.pacote.peso}"/>
+	
+	<h:outputText value="Unidade" for="idUnidade"/>
+	<h:inputText id="idUnidade" value="#{pacoteController.pacote.unidade}"/>
+	
+	
+	<h:commandButton value="Gravar" action="#{pacoteController.gravar}"/>
+</h:panelGrid>
+</fieldset>	
+</h:form>
+<h:form>
+<fieldset>
+<LEGEND>Dados</LEGEND>
+<h:panelGrid columns="2">
+	<h:dataTable value="#{pacoteController.listaPacote}" var="pac">
+		<h:column>
+		<f:facet name="header">Nome</f:facet>
+		<h:outputText value="#{pac.nome}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Valor</f:facet>
+		<h:outputText value="#{pac.valor}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Peso</f:facet>
+		<h:outputText value="#{pac.peso}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Alterar</f:facet>
+		<h:commandLink value="alterar" action="#{pacoteController.carregar(pac)}" />
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Remover</f:facet>
+		<h:commandLink value="remover" action="#{pacoteController.remover(pac)}"/>
+		</h:column>
+	
+	</h:dataTable>
+	</h:panelGrid>
+</fieldset>
+</h:form>
+</h:body>
+
+</html>

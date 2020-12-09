@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head></h:head>
+<h:body>
+<h:form>
+<fieldset>
+<LEGEND>Formas de Pagamento</LEGEND>
+<h:panelGrid columns="2">
+	<h:outputText value="Nome" for="idNome"/>
+	<h:inputText id="idNome" value="#{FormaPagamentoController.formaPagamento.nome}"/>
+	
+	<h:outputText value="Onus" for="idOnus"/>
+	<h:inputText id="idOnus" value="#{FormaPagamentoController.formaPagamento.onus}"/>
+
+	<h:outputText value="Dias de Compensação" for="idCompensacao"/>
+	<h:inputText id="idCompensacao" value="#{FormaPagamentoController.formaPagamento.diasCompensacao}"/>
+	
+	
+	
+	<h:commandButton value="Gravar" action="#{FormaPagamentoController.gravar}"/>
+</h:panelGrid>
+</fieldset>	
+</h:form>
+<h:form>
+<fieldset>
+<LEGEND>Dados</LEGEND>
+<h:panelGrid columns="2">
+	<h:dataTable value="#{FormaPagamentoController.listaFormaPagamento}" var="pag">
+		<h:column>
+		<f:facet name="header">Nome</f:facet>
+		<h:outputText value="#{pag.nome}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Onus</f:facet>
+		<h:outputText value="#{pag.onus}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Compensação</f:facet>
+		<h:outputText value="#{pag.compensacao}"/>
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Alterar</f:facet>
+		<h:commandLink value="alterar" action="#{FormaPagamentoController.carregar(pag)}" />
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Remover</f:facet>
+		<h:commandLink value="remover" action="#{FormaPagamentoController.remover(pag)}"/>
+		</h:column>
+	
+	</h:dataTable>
+	</h:panelGrid>
+</fieldset>
+</h:form>
+</h:body>
+
+</html>

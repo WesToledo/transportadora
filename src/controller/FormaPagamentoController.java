@@ -9,7 +9,7 @@ import javax.faces.bean.ViewScoped;
 import Dao.FormaPagamentoDao;
 import Modelo.FormaPagamento;
 
-@ManagedBean
+@ManagedBean(name= "FormaPagamentoController")
 @ViewScoped
 public class FormaPagamentoController {
 
