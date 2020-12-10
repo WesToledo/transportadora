@@ -19,8 +19,6 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
 	<h:outputText value="Dias de Compensação" for="idCompensacao"/>
 	<h:inputText id="idCompensacao" value="#{FormaPagamentoController.formaPagamento.diasCompensacao}"/>
 	
-	
-	
 	<h:commandButton value="Gravar" action="#{FormaPagamentoController.gravar}"/>
 </h:panelGrid>
 </fieldset>	
@@ -42,7 +40,7 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
 		
 		<h:column>
 		<f:facet name="header">Compensação</f:facet>
-		<h:outputText value="#{pag.compensacao}"/>
+		<h:outputText value="#{pag.diasCompensacao}"/>
 		</h:column>
 		
 		<h:column>

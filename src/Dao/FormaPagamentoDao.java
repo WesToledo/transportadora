@@ -27,8 +27,8 @@ public class FormaPagamentoDao {
 
 		PreparedStatement comandoSql = Conexao.getInstance().prepareStatement(sql);
 		comandoSql.setString(1, f.getNome());
-		comandoSql.setDouble(2, f.getOnus());
-		comandoSql.setInt(3, f.getDiasCompensacao());
+		comandoSql.setInt(2, f.getDiasCompensacao());
+		comandoSql.setDouble(3, f.getOnus());
 		comandoSql.setInt(4, f.getId());
 
 		comandoSql.execute();
@@ -48,7 +48,7 @@ public class FormaPagamentoDao {
 	public List<FormaPagamento> listaTodos() throws ClassNotFoundException, SQLException {
 		List<FormaPagamento> lista = new LinkedList<FormaPagamento>();
 
-		String sql = "SELECT * FROM Pacote";
+		String sql = "SELECT * FROM forma_pagamento";
 
 		PreparedStatement comandoSql = Conexao.getInstance().prepareStatement(sql);
 

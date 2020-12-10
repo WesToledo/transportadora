@@ -11,8 +11,8 @@ import Modelo.Destino;
 public class DestinoDao {
 
 	public void adiciona(Destino d) throws ClassNotFoundException, SQLException {
-		String sql = "INSERT INTO Destino(des_Referencia, des_Endereco, des_Numero, des_Bairro, des_Cep )"
-				+ "VALUES (?, ?, ?, ?, ?,?)";
+		String sql = "INSERT INTO Destino (des_Referencia, des_Endereco, des_Numero, des_Bairro, des_Cep )"
+				+ "VALUES (?, ?, ?, ?, ?)";
 
 		PreparedStatement comandoSql = Conexao.getInstance().prepareStatement(sql);
 		comandoSql.setString(1, d.getNomeReferencia());
@@ -35,6 +35,7 @@ public class DestinoDao {
 		comandoSql.setInt(3, Integer.parseInt(d.getNumero()));
 		comandoSql.setString(4, d.getBairro());
 		comandoSql.setString(5, d.getCep());
+		comandoSql.setInt(6, d.getId());
 
 		comandoSql.execute();
 		Conexao.getInstance().commit();

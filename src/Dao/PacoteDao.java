@@ -24,7 +24,7 @@ public class PacoteDao {
 	}
 
 	public void atualiza(Pacote p) throws ClassNotFoundException, SQLException {
-		String sql = "UPDATE Pacote SET pac_Nome=?, pac_Peso=?,pac_Valor=? , pac_Unidade WHERE idPacote=?";
+		String sql = "UPDATE Pacote SET pac_Nome=?, pac_Valor=?, pac_Peso=?, pac_Unidade=? WHERE idPacote=?";
 
 		PreparedStatement comandoSql = Conexao.getInstance().prepareStatement(sql);
 		comandoSql.setString(1, p.getNome());
