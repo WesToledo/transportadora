@@ -10,8 +10,7 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
 <fieldset>
 <LEGEND>Formas de Pagamento</LEGEND>
 <h:panelGrid columns="2">
-	<h:outputText value="Nome" for="idNome"/>
-	<h:inputText id="idNome" value="#{FormaPagamentoController.formaPagamento.nome}"/>
+	
 	
 	<h:outputText value="Onus" for="idOnus"/>
 	<h:inputText id="idOnus" value="#{FormaPagamentoController.formaPagamento.onus}"/>
@@ -20,6 +19,7 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
 	<h:inputText id="idCompensacao" value="#{FormaPagamentoController.formaPagamento.diasCompensacao}"/>
 	
 	<h:commandButton value="Gravar" action="#{FormaPagamentoController.gravar}"/>
+	<h:commandButton value="Próximo" action="Pacote.xhtml?faces-redirect=true"/>
 </h:panelGrid>
 </fieldset>	
 </h:form>
@@ -28,10 +28,7 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
 <LEGEND>Dados</LEGEND>
 <h:panelGrid columns="2">
 	<h:dataTable value="#{FormaPagamentoController.listaFormaPagamento}" var="pag">
-		<h:column>
-		<f:facet name="header">Nome</f:facet>
-		<h:outputText value="#{pag.nome}"/>
-		</h:column>
+		
 		
 		<h:column>
 		<f:facet name="header">Onus</f:facet>
@@ -52,7 +49,7 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
 		<f:facet name="header">Remover</f:facet>
 		<h:commandLink value="remover" action="#{FormaPagamentoController.remover(pag)}"/>
 		</h:column>
-	
+
 	</h:dataTable>
 	</h:panelGrid>
 </fieldset>

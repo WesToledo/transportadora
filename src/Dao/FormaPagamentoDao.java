@@ -11,25 +11,25 @@ import Modelo.FormaPagamento;
 public class FormaPagamentoDao {
 
 	public void adiciona(FormaPagamento f) throws ClassNotFoundException, SQLException {
-		String sql = "INSERT INTO Forma_Pagamento(pag_Nome, pag_Tributario, pag_Dias_Compensacao)" + "VALUES (?, ?, ?)";
+		String sql = "INSERT INTO Forma_Pagamento(pag_Tributario, pag_Dias_Compensacao)" + "VALUES ( ?, ?)";
 
 		PreparedStatement comandoSql = Conexao.getInstance().prepareStatement(sql);
-		comandoSql.setString(1, f.getNome());
-		comandoSql.setDouble(2, f.getOnus());
-		comandoSql.setInt(3, f.getDiasCompensacao());
+		
+		comandoSql.setDouble(1, f.getOnus());
+		comandoSql.setInt(2, f.getDiasCompensacao());
 
 		comandoSql.execute();
 		Conexao.getInstance().commit();
 	}
 
 	public void atualiza(FormaPagamento f) throws ClassNotFoundException, SQLException {
-		String sql = "UPDATE Forma_Pagamento SET pag_Nome=?, pag_Dias_Compensacao=?,pag_Tributario=? WHERE idForma_Pagamento=?";
+		String sql = "UPDATE Forma_Pagamento SET  pag_Dias_Compensacao=?,pag_Tributario=? WHERE idForma_Pagamento=?";
 
 		PreparedStatement comandoSql = Conexao.getInstance().prepareStatement(sql);
-		comandoSql.setString(1, f.getNome());
-		comandoSql.setInt(2, f.getDiasCompensacao());
-		comandoSql.setDouble(3, f.getOnus());
-		comandoSql.setInt(4, f.getId());
+		
+		comandoSql.setInt(1, f.getDiasCompensacao());
+		comandoSql.setDouble(2, f.getOnus());
+		comandoSql.setInt(3, f.getId());
 
 		comandoSql.execute();
 		Conexao.getInstance().commit();
@@ -57,7 +57,7 @@ public class FormaPagamentoDao {
 		while (rs.next()) {
 			FormaPagamento f = new FormaPagamento();
 			f.setId(rs.getInt("idForma_Pagamento"));
-			f.setNome(rs.getString("pag_Nome"));
+			
 			f.setOnus(rs.getDouble("pag_Tributario"));
 			f.setDiasCompensacao(rs.getInt("pag_Dias_Compensacao"));
 

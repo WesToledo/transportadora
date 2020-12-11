@@ -33,8 +33,8 @@ public class VeiculoDao {
 		
 		PreparedStatement comandoSql = Conexao.getInstance().prepareStatement(sql);
 		comandoSql.setString(1, p.getModelo());
-		comandoSql.setString(2,  p.getPlaca());
-		comandoSql.setString(3, p.getMarca());
+		comandoSql.setString(3,  p.getPlaca());
+		comandoSql.setString(2, p.getMarca());
 		comandoSql.setInt(4, p.getId());
 		
 		

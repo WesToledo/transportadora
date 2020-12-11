@@ -11,7 +11,7 @@ import Modelo.Pacote;
 public class PacoteDao {
 
 	public void adiciona(Pacote p) throws ClassNotFoundException, SQLException {
-		String sql = "INSERT INTO Pacote (pac_Nome, pac_Valor, pac_Peso, pac_Unidade)" + "VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO Pacote (pac_Nome, Valor, pac_Peso, pac_Unidade)" + "VALUES (?, ?, ?, ?)";
 
 		PreparedStatement comandoSql = Conexao.getInstance().prepareStatement(sql);
 		comandoSql.setString(1, p.getNome());
@@ -24,7 +24,7 @@ public class PacoteDao {
 	}
 
 	public void atualiza(Pacote p) throws ClassNotFoundException, SQLException {
-		String sql = "UPDATE Pacote SET pac_Nome=?, pac_Valor=?, pac_Peso=?, pac_Unidade=? WHERE idPacote=?";
+		String sql = "UPDATE Pacote SET pac_Nome=?, Valor=?, pac_Peso=?, pac_Unidade=? WHERE idPacote=?";
 
 		PreparedStatement comandoSql = Conexao.getInstance().prepareStatement(sql);
 		comandoSql.setString(1, p.getNome());
@@ -60,7 +60,7 @@ public class PacoteDao {
 			Pacote p = new Pacote();
 			p.setId(rs.getInt("idPacote"));
 			p.setNome(rs.getString("pac_Nome"));
-			p.setValor(rs.getDouble("pac_Valor"));
+			p.setValor(rs.getDouble("Valor"));
 			p.setPeso(rs.getDouble("pac_Peso"));
 			p.setUnidade(rs.getString("pac_Unidade"));
 
@@ -84,7 +84,7 @@ public class PacoteDao {
 			p = new Pacote();
 			p.setId(rs.getInt("idPacote"));
 			p.setNome(rs.getString("pac_Nome"));
-			p.setValor(rs.getDouble("pac_Valor"));
+			p.setValor(rs.getDouble("Valor"));
 			p.setPeso(rs.getDouble("pac_Peso"));
 			p.setUnidade(rs.getString("pac_Unidade"));
 

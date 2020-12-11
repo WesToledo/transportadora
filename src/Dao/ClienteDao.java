@@ -33,8 +33,8 @@ public class ClienteDao {
 		
 		PreparedStatement comandoSql = Conexao.getInstance().prepareStatement(sql);
 		comandoSql.setString(1, p.getNome());
-		comandoSql.setString(2,  p.getEndereco());
-		comandoSql.setString(3, p.getCpf());
+		comandoSql.setString(3,  p.getEndereco());
+		comandoSql.setString(2, p.getCpf());
 		comandoSql.setInt(4, p.getId());
 		
 		

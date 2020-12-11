@@ -21,6 +21,7 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
 	
 	
 	<h:commandButton value="Gravar" action="#{clienteController.gravar}"/>
+	<h:commandButton value="Próximo" action="Destino.xhtml?faces-redirect=true"/>
 </h:panelGrid>
 </fieldset>	
 </h:form>
@@ -53,6 +54,7 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
 		<f:facet name="header">Remover</f:facet>
 		<h:commandLink value="remover" action="#{clienteController.remover(cli)}"/>
 		</h:column>
+		
 	
 	</h:dataTable>
 	</h:panelGrid>
